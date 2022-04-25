@@ -38,7 +38,7 @@ public class MainMath {
         double numMAX = 11;
         // para ter um número aletaorio entre 0 e algum valor, vamos multiplicar random por um valor
         // e esse valor será o maximo que esse valor - 1.Por isso colocamos o maximo com valor 11
-        //para conseguimos ter um valor aleatorio entre 0 a 11
+        // para conseguimos ter um valor aleatorio entre 0 a 10
 
         System.out.println("retorna o valor aleatorio de 0 a " + (numMAX - 1) + ": " + (int)(Math.random() * numMAX)); 
 
