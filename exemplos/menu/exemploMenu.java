@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class exemploMenu {
-
+    
     public static void main(String[] args) {
 
         ArrayList<Double> valores = new ArrayList<Double>();
