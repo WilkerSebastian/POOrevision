@@ -1,0 +1,7 @@
+{
+    "java.project.outputPath": "",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "libs\\postgresql-42.3.3.jar"
+    ]
+}

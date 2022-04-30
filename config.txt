@@ -1,0 +1,26 @@
+Configurações do Drive JDBC
+
+Caso você esteja desenvolvendo com IDE Eclipse
+
+deve selecionar o arqivo postgresql-42.3.3.jar e aperta com botão direito do mouse 
+e aperte em add Referencial Libraries e após o drive vai estar funcionando.
+
+Caso você esteja desenvolvendo com IDE Visual Studio Code
+
+deve abrir o JAVA PROJECTS e aperta nós "..." e aperta no "configure Classpath"
+e ir até o Referenced Libraries e adicionar o postgresql-42.3.3.jar
+
+---------------------------------------------------------------------///-------------------------------------------------
+
+configuração do postgreSQL
+
+1 - você deve abrir o seu PGadmin .
+
+2 - criar uma novo banco de dados com nome bdtlp.
+
+3 - abrir as pastas sql onde estarão todos scripts de criação das tabelas usadas e você deve 
+copiar aquela que deseja usar.
+
+4 - depois abrir ferramenta de scripts do PGadmin e assim colar lá o seu script escolhido.
+
+5 e por fim executar esse script que irar criar a tabela desejada.
