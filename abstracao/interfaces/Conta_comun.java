@@ -1,29 +1,66 @@
 package abstracao.interfaces;
 
-import java.util.Random;
+import java.util.ArrayList;
+
+// para usar a iterface numa classe usamos o "implements" seguido do nome da interface
+// o que obriga a classe a usar os métodos da interface
 
 public class Conta_comun implements Conta{
 
-    private int id = 0;
+    public static ArrayList<Integer> ids = new ArrayList<Integer>();
     private String nome;
     private double valor;
+    private int id;
 
     public Conta_comun(String nome , double valor) {
         
-        Random aleatio = new Random();
+        // criamos um id que é um número aletorio de até 6 digitos
+        int id = (int) (Math.random() * Math.pow(10 , 6));
 
-        this.id = aleatio.nextInt();
+        // verificamos se o ArrayList não está vazio
+        if (!ids.isEmpty()) {
+         
+            // fazemos um ciclo while que repete enqunato não fornecemos um id não repitido
+            while (verificarID(id)){ 
 
-        if (id < 0) {
-            
-            this.id *= -1;
+                // passamos outro valor aleatorio de até 6 digitos para o id
+                id = (int) (Math.random() * Math.pow(10 , 6));
+    
+            }
 
         }
+
+        // adicionamos o id no ArrayList de ids
+        ids.add(id);
+        
+        // atribuinos a variavel id ao atributo id da classe Conta_comun
+        this.id = id;
+
         setNome(nome);
         setValor(valor);
 
     }
 
+    // método para ver se ja existe um id cadastrado
+    public boolean verificarID(int id){
+
+        boolean existe = false;
+
+        for (Integer id_existente : ids) {
+
+            if (id_existente == id) {
+
+                existe = true;
+                
+            }
+            
+        }
+
+        return existe;
+
+    }
+
+    // método transferir que somos obrigados a sobrescrever da interface Conta
     @Override
     public void transferir(double valor , Conta conta_envio){
 
@@ -35,19 +72,29 @@ public class Conta_comun implements Conta{
 
         }else{
 
-            System.out.println("erro na traferencia");
+            System.out.println("\nerro na transferencia");
 
         }
         
     }
 
+    // método sacar que somos obrigados a sobrescrever da interface Conta
     @Override
     public void sacar(double valor) {
-        
-        this.valor -= valor;
+
+        if (valor <= this.valor) {
+         
+            this.valor -= valor;
+
+        }else{
+
+            System.out.println("\nerro ao sacar");
+
+        }
         
     }
 
+    // método depositar que somos obrigados a sobrescrever da interface Conta
     @Override
     public void depositar(double valor) {
         
@@ -55,6 +102,7 @@ public class Conta_comun implements Conta{
         
     }
 
+    // método imprimir que somos obrigados a sobrescrever da interface Conta
     @Override
     public String imprimir() {
         
